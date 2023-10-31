@@ -50,19 +50,18 @@ select, input:focus {
     font-family: Century Gothic Thin;
 }
 
-#form-box {
-    font-family: Century Gothic Thin;
-    font-weight: bold;
-    font-size: 15px;
-}
 
 #form-box {
     margin: 0 auto;
     padding: 15px;
     overflow: hidden;
+    font-family: Century Gothic Thin;
+    font-weight: bold;
+    font-size: 15px;
 }
 
 #form-box form table {
+    width: 50%;
     margin: 0 auto;
     padding: 25px;
     overflow: hidden;
@@ -74,7 +73,7 @@ select, input:focus {
     background-color: #00ADFF;
     border: none;
     border-radius: 5px;
-    width: 23%;
+    width: auto;
     height: 30px;
 }
 #resetForm {
@@ -84,7 +83,7 @@ select, input:focus {
     background-color: rgb(191W, 191, 191);
     border: none;
     border-radius: 5px;
-    width: 23%;
+    width: auto;
     height: 30px;
 }
 #saveForm, #resetForm {
@@ -115,4 +114,24 @@ input[type="text"], input[type="email"], input[type="date"], select {
 
 .seperator {
     padding: 5px;
+}
+
+
+#tbl-container {
+    margin: 0 auto;
+    padding: 15px;
+    overflow: hidden;
+    font-family: Century Gothic Thin;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#tbl-container form table {
+    margin: 0 auto;
+    padding: 25px;
+    overflow: hidden;
+}
+#tbl-container form table th td {
+    border: 1px solid black;
+    order-collapse: collapse;
 }

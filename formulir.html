@@ -107,15 +107,27 @@
                     confirmButtonText: 'Ya, Simpan',
                     cancelButtonText: 'Batal',
                 }).then((result) => {
-                    if (result.isConfirmed) {
-                        Swal.fire('Data Tersimpan!', 'Data Anda telah berhasil disimpan.', 'success');
-                    }
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Data berhasil tersimpan'
+                    })
                 });
             } else {
                 Swal.fire({
                     icon: 'error',
                     title: 'Gagal!',
-                    text: 'Ada data yang belum terisi...',
+                    text: 'Data anda belum terisi!...',
                 })
             }
         });
