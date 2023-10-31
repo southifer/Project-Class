@@ -99,7 +99,8 @@
             const email = document.getElementById("email").value;
             const tanggal_lahir = document.getElementById("tanggal_lahir").value;
     
-            if (nama !== "" && email !== "" && tanggal_lahir !== "") {
+            const validateEmail = email.indexOf("@");
+            if (nama !== "" && validateEmail !== -1 && tanggal_lahir !== "") {
                 Swal.fire({
                     title: 'Simpan Data',
                     text: `Hai ${nama}, Apakah Anda yakin ingin menyimpan data ini?`,
@@ -108,27 +109,39 @@
                     confirmButtonText: 'Ya, Simpan',
                     cancelButtonText: 'Batal',
                 }).then((result) => {
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'top-end',
-                        showConfirmButton: false,
-                        timer: 3000,
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                            toast.addEventListener('mouseenter', Swal.stopTimer)
-                            toast.addEventListener('mouseleave', Swal.resumeTimer)
-                        }
-                    })
-                    Toast.fire({
-                        icon: 'success',
-                        title: 'Data berhasil tersimpan'
-                    })
+                    if (result.isConfirmed) {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            }
+                        })
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Data berhasil tersimpan'
+                        })
+                    }
                 });
             } else {
-                Swal.fire({
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+                Toast.fire({
                     icon: 'error',
-                    title: 'Gagal!',
-                    text: 'Data anda belum terisi!...',
+                    title: 'Data tidak valid!'
                 })
             }
         });
