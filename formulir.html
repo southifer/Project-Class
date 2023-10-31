@@ -125,6 +125,22 @@
                             icon: 'success',
                             title: 'Data berhasil tersimpan'
                         })
+                    } else {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            }
+                        })
+                        Toast.fire({
+                            icon: 'info',
+                            title: 'Data tidak di simpan'
+                        })
                     }
                 });
             } else {
@@ -140,8 +156,8 @@
                     }
                 })
                 Toast.fire({
-                    icon: 'error',
-                    title: 'Data tidak valid!'
+                    icon: 'warning',
+                    title: 'Data tidak valid!...'
                 })
             }
         });
