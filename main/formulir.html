@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://mondstadt.hydra-bot.xyz/profile/sunglass.png">
+    <link rel="stylesheet" href="style.css">
+    <title>Formulir Page</title>
+</head>
+<body>
+    <div id="page-header">
+        <ul>
+            <li><a href="latihan.html">LATIHAN</a></li>
+            <li><a href="gambar.html">LINK / GAMBAR</a></li>
+            <li><a href="table.html">TABEL</a></li>
+            <li><a href="formulir.html">FORMULIR</a></li>
+        </ul>
+    </div>
+    <div id="form-box">
+        <div>
+            <h2 align="center" style="font-weight: bold;">Formulir Pendaftaran Mahasiswa</h2>
+        </div>
+        <form action="backend/dataProcess.php" method="POST">
+            <table align="center" width="80%" cellpadding="5" cellspacing="0">
+                <tr>
+                    <td><label for="nama">Nama Mahasiswa</label></td>
+                    <td><input type="text" name="nama" id="nama" placeholder="Tuliskan Nama Lengkap"></td>
+                </tr>
+                <tr>
+                    <td><label for="email">E-Mail Mahasiswa</label></td>
+                    <td><input type="email" name="email" id="email"placeholder="Tuliskan Email"></td>
+                </tr>
+                <tr>
+                    <td><label for="tanggal_lahir">Tanggal Lahir</label></td>
+                    <td><input type="date" name="tanggal_lahir" id="tanggal_lahir"></td>
+                </tr>
+                <tr>
+                    <td>Jenis Kelamin</td>
+                    <td>
+                        <div class="seperator">
+                            <input type="radio" name="jenis" id="MALE" value="L">
+                            <label for="MALE">Laki-laki</label>
+                        </div>
+                        <div class="seperator">
+                            <input type="radio" name="jenis" id="FEMALE" value="P">
+                            <label for="FEMALE">Perempuan</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Program Studi</td>
+                    <td>
+                        <select name="prodi" id="prodi">
+                            <option value="SK">Sistem Komputer</option>
+                            <option value="SI">Sistem Informasi</option>
+                            <option value="TI">Teknologi Informasi</option>
+                            <option value="MI">Manajemen Informatika</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Minat</td>
+                    <td>
+                        <div class="seperator">
+                            <input type="checkbox" name="game" id="game">
+                            <label for="game">Game</label>
+                        </div>
+                
+                        <div class="seperator">
+                            <input type="checkbox" name="programming" id="programming">
+                            <label for="programming">Programming</label>
+                        </div>
+                
+                        <div class="seperator">
+                            <input type="checkbox" name="multimedia" id="multimedia">
+                            <label for="multimedia">Multimedia</label>
+                        </div>
+                
+                        <div class="seperator">
+                            <input type="checkbox" name="videographer" id="videographer">
+                            <label for="videographer">Videographer</label>
+                        </div>
+                        <div class="seperator">
+                            <button id="saveForm">Simpan</button>
+                            <button id="resetForm">Reset</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById("saveForm").addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent the form submission (if not needed)
+            
+            const nama = document.getElementById("nama").value;
+            const email = document.getElementById("email").value;
+            const tanggal_lahir = document.getElementById("tanggal_lahir").value;
+    
+            if (nama !== "" && email !== "" && tanggal_lahir !== "") {
+                Swal.fire({
+                    title: 'Simpan Data',
+                    text: `Hai ${nama}, Apakah Anda yakin ingin menyimpan data ini?`,
+                    icon: 'info',
+                    showCancelButton: true,
+                    confirmButtonText: 'Ya, Simpan',
+                    cancelButtonText: 'Batal',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire('Data Tersimpan!', 'Data Anda telah berhasil disimpan.', 'success');
+                    }
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal!',
+                    text: 'Ada data yang belum terisi...',
+                })
+            }
+        });
+    </script>
+</body>
+</html>

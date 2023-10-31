@@ -1,0 +1,118 @@
+* {
+    /* font-family: JetBrains Mono Light; */
+    margin: 0px;
+}
+
+ul li a {
+    font-family: Century Gothic Thin;
+    font-weight: bold;
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+}
+
+#page-header ul {
+    list-style-type: none;
+    padding-left: 0px;
+    overflow: hidden;
+}
+
+#page-header ul li a {
+    color: rgb(198, 198, 198);
+    transition: 0.3s;
+    display: block;
+    padding: 15px;
+    font-size: 15px;
+    word-spacing: 3px;
+}
+#page-header ul li a:hover {
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+select, input:focus {
+    outline: none;
+    border: none;
+}
+
+
+#page-header ul li {
+    float: left;
+}
+
+#page-header {
+    background-color: #3D30A2;
+    position: sticky;
+    top: 0px;
+    z-index: 2;
+}
+
+.swal2-popup {
+    font-family: Century Gothic Thin;
+}
+
+#form-box {
+    font-family: Century Gothic Thin;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#form-box {
+    margin: 0 auto;
+    padding: 15px;
+    overflow: hidden;
+}
+
+#form-box form table {
+    margin: 0 auto;
+    padding: 25px;
+    overflow: hidden;
+}
+
+#saveForm {
+    color: white;
+    font-size: 15px;
+    background-color: #00ADFF;
+    border: none;
+    border-radius: 5px;
+    width: 23%;
+    height: 30px;
+}
+#resetForm {
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: rgb(191W, 191, 191);
+    border: none;
+    border-radius: 5px;
+    width: 23%;
+    height: 30px;
+}
+#saveForm, #resetForm {
+    transition: 0.5s;
+}
+
+#saveForm:hover {
+    filter: brightness(70%);
+}
+
+#resetForm:hover {
+    filter: brightness(90%);
+}
+
+input[type="text"], input[type="email"], input[type="date"], select {
+    width: 100%;
+    height: 15%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+} 
+
+input[type="text"], input[type="email"], input[type="date"], select {
+    border: 0.1px solid #0078d4;
+    border-radius: 5px;
+} 
+
+.seperator {
+    padding: 5px;
+}
