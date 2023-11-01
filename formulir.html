@@ -103,7 +103,7 @@
             if (nama !== "" && validateEmail !== -1 && tanggal_lahir !== "") {
                 Swal.fire({
                     title: 'Simpan Data',
-                    text: `Hai ${nama}, Apakah Anda yakin ingin menyimpan data ini?`,
+                    text: `Hai "${nama}", Apakah Anda yakin ingin menyimpan data ini?`,
                     icon: 'info',
                     showCancelButton: true,
                     confirmButtonText: 'Ya, Simpan',
@@ -160,6 +160,25 @@
                     title: 'Data tidak valid!...'
                 })
             }
+        });
+
+        document.getElementById("resetForm").addEventListener("click", function(event) {
+            event.preventDefault();
+            const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'bottom-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+                Toast.fire({
+                    icon: 'info',
+                    title: 'Formulir tereset!'
+                })
         });
     </script>
 </body>

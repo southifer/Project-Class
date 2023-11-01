@@ -3,13 +3,6 @@
     margin: 0px;
 }
 
-ul li a {
-    font-family: Century Gothic Thin;
-    font-size: 15px;
-    text-decoration: none;
-    color: black;
-}
-
 #page-header ul {
     list-style-type: none;
     padding-left: 0px;
@@ -24,6 +17,8 @@ ul li a {
     font-size: 15px;
     word-spacing: 2px;
     letter-spacing: 3px;
+    font-family: Century Gothic Thin;
+    text-decoration: none;
 }
 
 #page-header ul li a:hover {
@@ -55,7 +50,7 @@ select, input:focus {
 
 #form-box {
     margin: 0 auto;
-    padding: 15px;
+    padding-top: 55px;
     overflow: hidden;
     font-family: Century Gothic Thin;
     font-weight: bold;
@@ -67,6 +62,75 @@ select, input:focus {
     margin: 0 auto;
     padding: 25px;
     overflow: hidden;
+}
+
+#img-table table {
+    margin: 0 auto;
+    padding: 55px;
+    border-width: 1px;
+    border-style: solid;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+#img-table table tr td {
+    padding: 20px;
+}
+
+#img-table table tr td img {
+    border-radius: 10px;
+    width: 50%;
+    height: auto;
+    image-rendering: optimizeSpeed;
+    transition: 0.5s;
+}
+
+#img-table table tr td p {
+    border-radius: 10px;
+    scale: 100%;
+    height: auto;
+    transition: 0.5s;
+}
+#img-scale {
+    text-align: justify;
+    filter: contrast(65%);
+    width: auto;
+    image-rendering: optimizeSpeed;
+    transition: 0.5s;
+}
+
+#img-scale:hover {
+    font-size: 15px;
+    text-align: justify;
+    filter: contrast(110%);
+    border-radius: 15px;
+    scale: 95%;
+}
+
+#img-table table, #img-table table tr td p {
+    transition: 0.5s;
+}
+
+#img-table table:hover {
+    width: 55%;
+}
+
+/* #img-table table tr td img:hover {
+    border-radius: 10px;
+    width: 80%;
+    height: auto;
+    image-rendering: optimizeSpeed;
+}
+
+#img-table table tr td p:hover {
+    border-radius: 10px;
+    scale: 110%;
+    height: auto;
+    image-rendering: optimizeSpeed;
+} */
+
+#img-table {
+    padding: 15px;
 }
 
 #saveForm {
@@ -135,5 +199,34 @@ input[type="text"], input[type="email"], input[type="date"], select {
 }
 #tbl-container form table th td {
     border: 1px solid black;
-    order-collapse: collapse;
+}
+
+#dashboard-page {
+    padding: 15px;
+}
+
+#dashboard-page #img-container {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#dashboard-page #img-container img {
+    filter: contrast(45%);
+    image-rendering: optimizeSpeed;
+    padding-left: 15px;
+    width: 30%;
+    transition: 0.3s;
+}
+
+#dashboard-page #img-container img:hover {
+    filter: contrast(100%);
+}
+
+#dashboard-page #main-container {
+    margin: 0 auto;
+    width: 50%;
+    padding: 15px;
+    text-align: center;
+    font-size: 25px;
 }

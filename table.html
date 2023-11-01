@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Tabel Page</title>
 </head>
@@ -15,13 +16,48 @@
             <li><a href="formulir.html">FORMULIR</a></li>
         </ul>
     </div>
-    <div id="tbl-container">
-        <table>
+    <div id="img-table">
+        <table align="center" width="50%" cellpadding="5" cellspacing="0">
             <tr>
-                <td>Gambar</td>
-                <td>Deskripsi</td>
+                <td style="font-weight: bold; font-size: 35px;" rowspan="1">Gambar</td>
+                <td style="font-weight: bold; font-size: 35px;" rowspan="1">Deskripsi</td>
+            </tr>
+            <tr id="img-scale">
+                <td><img src="https://github.com/southifer/class-assignment.github.io/blob/main/img/1.jpg?raw=true" alt="" onclick="showImage(event)"></td>
+                <td><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam possimus laudantium, eos magni eligendi praesentium expedita dolore assumenda eum fuga officia illum aliquam, molestias accusamus ab quos reprehenderit corrupti dolorem.</p></td>
+            </tr>
+            <tr id="img-scale">
+                <td><img src="https://github.com/southifer/class-assignment.github.io/blob/main/img/2.png?raw=true" alt="" onclick="showImage(event)"></td>
+                <td><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam possimus laudantium, eos magni eligendi praesentium expedita dolore assumenda eum fuga officia illum aliquam, molestias accusamus ab quos reprehenderit corrupti dolorem.</p></td>
+            </tr>
+            <tr id="img-scale">
+                <td><img src="https://github.com/southifer/class-assignment.github.io/blob/main/img/3.jpg?raw=true" alt="" onclick="showImage(event)" download></td>
+                <td><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam possimus laudantium, eos magni eligendi praesentium expedita dolore assumenda eum fuga officia illum aliquam, molestias accusamus ab quos reprehenderit corrupti dolorem.</p></td>
             </tr>
         </table>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        const showImage = (event) => {
+            const imageUrl = event.target.getAttribute("src");
+            
+            Swal.fire({
+                title: 'Apakah anda ingin mengunduh gambar ini?',
+                imageUrl: imageUrl,
+                imageWidth: 400,
+                imageAlt: 'Original Image',
+                showCancelButton: true,
+                confirmButtonText: "Unduh",
+                cancelButtonText: "Batal",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const link = document.createElement("a");
+                    link.href = imageUrl;
+                    link.download = "export.png";
+                    link.click();
+                }
+            });
+        }
+    </script>
 </body>
 </html>
